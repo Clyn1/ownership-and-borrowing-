@@ -3,5 +3,9 @@
 version = 4
 
 [[package]]
+<<<<<<< HEAD
 name = "allowing"
+=======
+name = "Rust_projects"
+>>>>>>> 4d75d863bf2c8f38a7095a951b50f836fcfa5ecc
 version = "0.1.0"
