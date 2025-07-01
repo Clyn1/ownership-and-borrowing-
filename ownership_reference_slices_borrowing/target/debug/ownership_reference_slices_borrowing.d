@@ -1,0 +1,1 @@
+/home/clintonochieng/Desktop/Rust_projects/ownership_reference_slices_borrowing/target/debug/ownership_reference_slices_borrowing: /home/clintonochieng/Desktop/Rust_projects/ownership_reference_slices_borrowing/src/main.rs
