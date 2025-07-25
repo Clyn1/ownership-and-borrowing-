@@ -1,0 +1,1 @@
+/home/clintonochieng/Desktop/Rust_projects/ownership_reference_slices_borrowing/contact_book/contact_book/target/debug/contact_book: /home/clintonochieng/Desktop/Rust_projects/ownership_reference_slices_borrowing/contact_book/contact_book/src/main.rs
