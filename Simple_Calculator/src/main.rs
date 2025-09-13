@@ -1,56 +1,27 @@
-use std::io; // For user input
+use rand::Rng; // add rand in Cargo.toml
 
 fn main() {
-    println!("=== Simple Calculator ===");
+    println!("🎲 Dice Roller!");
 
-    // Get first number
-    let num1 = read_number("Enter the first number: ");
+    let mut input = String::new();
+    println!("How many dice do you want to roll?");
+    std::io::stdin().read_line(&mut input).expect("Failed to read input");
+    let num_dice: u32 = input.trim().parse().expect("Please enter a number");
 
-    // Get second number
-    let num2 = read_number("Enter the second number: ");
+    input.clear();
+    println!("How many sides per die?");
+    std::io::stdin().read_line(&mut input).expect("Failed to read input");
+    let sides: u32 = input.trim().parse().expect("Please enter a number");
 
-    // Get the operation
-    println!("Choose an operation (+, -, *, /): ");
-    let mut operation = String::new();
-    io::stdin().read_line(&mut operation).expect("Failed to read input");
-    let operation = operation.trim(); // Remove extra spaces/newlines
+    let mut rng = rand::thread_rng();
+    let mut total = 0;
 
-    // Perform calculation
-    let result = match operation {
-        "+" => num1 + num2,
-        "-" => num1 - num2,
-        "*" => num1 * num2,
-        "/" => {
-            if num2 == 0.0 {
-                println!("Error: Division by zero is not allowed!");
-                return;
-            } else {
-                num1 / num2
-            }
-        }
-        _ => {
-            println!("Invalid operation!");
-            return;
-        }
-    };
-
-    // Show result
-    println!("Result: {}", result);
-}
-
-// Function to read and convert number from user input
-fn read_number(prompt: &str) -> f64 {
-    loop {
-        println!("{}", prompt);
-
-        let mut input = String::new();
-        io::stdin().read_line(&mut input).expect("Failed to read input");
-
-        match input.trim().parse::<f64>() {
-            Ok(num) => return num,
-            Err(_) => {
-                println!("Invalid number! Please try again.");
-            }
-        }
+    println!("Rolling {} dice with {} sides each...", num_dice, sides);
+    for i in 1..=num_dice {
+        let roll = rng.gen_range(1..=sides);
+        println!("Die {}: {}", i, roll);
+        total += roll;
     }
+
+    println!("Total: {}", total);
 }
